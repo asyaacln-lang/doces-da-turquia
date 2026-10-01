@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doces da Turquia | Palmas - Tocantins</title>
+  <style>
+    /* RESET & BASE STYLES */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0b1622;
+      color: #f3f4f6;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* COLOR PALETTE */
+    :root {
+      --navy-dark: #0b1622;
+      --navy-main: #132438;
+      --navy-card: #1c2e4a;
+      --gold-main: #d4af37;
+      --gold-hover: #e6c875;
+      --burgundy: #800020;
+      --white: #ffffff;
+      --text-gray: #d1d5db;
+    }
+
+    /* TOP ANNOUNCEMENT BAR */
+    .top-bar {
+      background-color: #070d14;
+      color: var(--gold-main);
+      padding: 8px 15px;
+      font-size: 13px;
+      text-align: center;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    }
+    .top-bar span {
+      margin: 0 10px;
+      display: inline-block;
+    }
+
+    /* HEADER & HERO */
+    header {
+      background: linear-gradient(180deg, var(--navy-main) 0%, var(--navy-dark) 100%);
+      padding: 30px 20px;
+      text-align: center;
+      border-bottom: 2px solid var(--gold-main);
+    }
+    .logo-badge {
+      width: 120px;
+      height: 120px;
+      background-color: var(--navy-dark);
+      border: 3px solid var(--gold-main);
+      border-radius: 50%;
+      margin: 0 auto 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+    .logo-badge h2 {
+      color: var(--gold-main);
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+    .logo-badge span {
+      color: #fff;
+      font-size: 9px;
+      letter-spacing: 1px;
+    }
+    .brand-title {
+      font-size: 28px;
+      color: var(--gold-main);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+    .brand-subtitle {
+      font-size: 14px;
+      color: var(--text-gray);
+      font-style: italic;
+      margin-bottom: 15px;
+    }
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+    .btn {
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-weight: bold;
+      font-size: 14px;
+      display: inline-block;
+      transition: background 0.3s;
+    }
+    .btn-gold {
+      background-color: var(--gold-main);
+      color: #000;
+    }
+    .btn-gold:hover {
+      background-color: var(--gold-hover);
+    }
+    .btn-outline {
+      border: 1px solid var(--gold-main);
+      color: var(--gold-main);
+    }
+    .btn-outline:hover {
+      background-color: rgba(212, 175, 55, 0.1);
+    }
+
+    /* INFO STRIP */
+    .info-strip {
+      background-color: var(--burgundy);
+      padding: 15px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 10px;
+      text-align: center;
+      font-size: 12px;
+    }
+    .info-box strong {
+      display: block;
+      color: var(--gold-main);
+    }
+
+    /* MENU SECTION */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px 15px;
+    }
+    .section-title {
+      text-align: center;
+      color: var(--gold-main);
+      font-size: 24px;
+      margin: 30px 0 10px;
+      position: relative;
+    }
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 2px;
+      background: var(--gold-main);
+      margin: 8px auto 0;
+    }
+
+    .category-title {
+      color: #fff;
+      font-size: 20px;
+      background-color: var(--navy-main);
+      padding: 10px 15px;
+      border-left: 4px solid var(--gold-main);
+      margin: 25px 0 15px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    /* MENU CARDS */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 15px;
+    }
+    .card {
+      background-color: var(--navy-card);
+      border: 1px solid rgba(212, 175, 55, 0.15);
+      border-radius: 10px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+    .item-name {
+      font-size: 16px;
+      font-weight: bold;
+      color: var(--gold-main);
+    }
+    .item-price {
+      font-size: 16px;
+      font-weight: bold;
+      color: #fff;
+      background-color: rgba(212, 175, 55, 0.15);
+      padding: 2px 8px;
+      border-radius: 5px;
+      border: 1px solid var(--gold-main);
+    }
+    .item-desc {
+      font-size: 13px;
+      color: var(--text-gray);
+      margin-bottom: 15px;
+    }
+    .card-btn {
+      background-color: #25d366;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 13px;
+      display: block;
+      transition: background-color 0.2s;
+    }
+    .card-btn:hover {
+      background-color: #128c7e;
+    }
+
+    /* FLOATING WHATSAPP BUTTON */
+    .whatsapp-float {
+      position: fixed;
+      width: 55px;
+      height: 55px;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: #FFF;
+      border-radius: 50px;
+      text-align: center;
+      font-size: 28px;
+      box-shadow: 2px 4px 12px rgba(0,0,0,0.5);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #fff;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #050b11;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 40px;
+      border-top: 1px solid rgba(212, 175, 55, 0.2);
+      font-size: 13px;
+      color: var(--text-gray);
+    }
+    footer a {
+      color: var(--gold-main);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <span>📞 <a href="tel:+5563981251996" style="color:inherit;">+55 63 98125-1996</a></span> |
+    <span>📍 1103 Sul - Palmas, TO</span>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo-badge">
+      <h2>DOCES DA</h2>
+      <h2>TURQUIA</h2>
+      <span>PALMAS - TO</span>
+    </div>
+    <h1 class="brand-title">Doces da Turquia</h1>
+    <p class="brand-subtitle">Doces artesanais turcos feitos com carinho ❤️</p>
+    
+    <div class="hero-buttons">
+      <a href="https://wa.me/message/3NVFPB6WRK7KB1" target="_blank" class="btn btn-gold">💬 Pedir pelo WhatsApp</a>
+      <a href="https://www.instagram.com/docesdaturquia" target="_blank" class="btn btn-outline">📸 Instagram</a>
+    </div>
+  </header>
+
+  <!-- INFO STRIP -->
+  <div class="info-strip">
+    <div class="info-box">
+      <strong>📦 Encomendas</strong>
+      Sob encomenda
+    </div>
+    <div class="info-box">
+      <strong>📅 Produção</strong>
+      Disponibilidade diária
+    </div>
+    <div class="info-box">
+      <strong>🛵 Entregas</strong>
+      Consulte a taxa
+    </div>
+    <div class="info-box">
+      <strong>📍 Retirada</strong>
+      1103 Sul - Palmas
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="container">
+    <h2 class="section-title">NOSSO CARDÁPIO</h2>
+
+    <!-- BAKLAVA -->
+    <h3 class="category-title">🥐 BAKLAVA</h3>
+    <div class="menu-grid">
+      <div class="card">
+        <div>
+          <div class="card-header">
+            <span class="item-name">Baklava com Nozes</span>
+            <span class="item-price">R$ 15,00</span>
+          </div>
+          <p class="item-desc">Baklava turca crocante, recheada com nozes e preparada artesanalmente. (90gr)</p>
+        </div>
+        <a href="https://wa.me/5563981251996?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20de:%20Baklava%20com%20Nozes" target="_blank" class="card-btn">Pedir no WhatsApp</a>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="card-header">
+            <span class="item-name">Baklava com Muhallebi e Amendoim</span>
+            <span class="item-price">R$ 20,00</span>
+          </div>
+          <p class="item-desc">Baklava crocante combinada com o tradicional creme turco de muhallebi e amendoim. Cremosa e irresistível!</p>
+        </div>
+        <a href="https://wa.me/5563981251996?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20de:%20Baklava%20com%20Muhallebi%20e%20Amendoim" target="_blank" class="card-btn">Pedir no WhatsApp</a>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="card-header">
+            <span class="item-name">Baklava com Pistache</span>
+            <span class="item-price">R$ 25,00</span>
+          </div>
+          <p class="item-desc">Baklava turca tradicional preparada com pistache de alta qualidade. (Produção sob encomenda)</p>
+        </div>
+        <a href="https://wa.me/5563981251996?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20de:%20Baklava%20com%20Pistache" target="_blank" class="card-btn">Pedir no WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- SOBREMESAS -->
+    <h3 class="category-title">🍮 SOBREMESAS</h3>
+    <div class="menu-grid">
+      <div class="card">
+        <div>
+          <div class="card-header">
+            <span class="item-name">Tiramisu</span>
+            <span class="item-price">R$ 15,00</span>
+          </div>
+          <p class="item-desc">Tiramisu cremoso preparado artesanalmente com café espresso.</p>
+        </div>
+        <a href="https://wa.me/5563981251996?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20de:%20Tiramisu" target="_blank" class="card-btn">Pedir no WhatsApp</a>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="card-header">
+            <span class="item-name">Tiramisu com Creme Turco</span>
+            <span class="item-price">R$ 15,00</span>
+          </div>
+          <p class="item-desc">Uma versão especial e cremosa inspirada nos sabores turcos.</p>
+        </div>
+        <a href="https://wa.me/5563981251996?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20de:%20Tiramisu%20com%20Creme%20Turco" target="_blank" class="card-btn">Pedir no WhatsApp</a>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="card-header">
+            <span class="item-name">Muhallebi Turco</span>
+            <span class="item-price">R$ 15,00</span>
+          </div>
+          <p class="item-desc">Sobremesa tradicional turca à base de leite, cremosa e delicada.</p>
+        </div>
+        <a href="https://wa.me/5563981251996?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20de:%20Muhallebi%20Turco" target="_blank" class="card-btn">Pedir no WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- DOCES TURCOS & BOLOS -->
+    <h3 class="category-title">🍬 DOCES TURCOS & BOLOS</h3>
+    <div class="menu-grid">
+      <div class="card">
+        <div>
+          <div class="card-header">
+            <span class="item-name">Lokum de Laranja</span>
+            <span class="item-price">R$ 10,00</span>
+          </div>
+          <p class="item-desc">Doce turco tradicional (Delícia Turca), macio e aromático, com delicioso sabor de laranja. 🍊</p>
+        </div>
+        <a href="https://wa.me/5563981251996?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20de:%20Lokum%20de%20Laranja" target="_blank" class="card-btn">Pedir no WhatsApp</a>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="card-header">
+            <span class="item-name">Lokum - Sabores Variados</span>
+            <span class="item-price">Consulte</span>
+          </div>
+          <p class="item-desc">Consulte os sabores disponíveis para o dia no nosso WhatsApp.</p>
+        </div>
+        <a href="https://wa.me/5563981251996?text=Olá!%20Gostaria%20de%20saber%20os%20sabores%20disponíveis%20de%20Lokum" target="_blank" class="card-btn">Consultar Sabores</a>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="card-header">
+            <span class="item-name">Bolo de Chocolate</span>
+            <span class="item-price">R$ 15,00</span>
+          </div>
+          <p class="item-desc">Bolo de chocolate macio e saboroso, preparado artesanalmente.</p>
+        </div>
+        <a href="https://wa.me/5563981251996?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20de:%20Bolo%20de%20Chocolate" target="_blank" class="card-btn">Pedir no WhatsApp</a>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="card-header">
+            <span class="item-name">Bolo de Chocolate com Coco</span>
+            <span class="item-price">R$ 15,00</span>
+          </div>
+          <p class="item-desc">Bolo de chocolate com coco e cobertura cremosa.</p>
+        </div>
+        <a href="https://wa.me/5563981251996?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20de:%20Bolo%20de%20Chocolate%20com%20Coco" target="_blank" class="card-btn">Pedir no WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <a href="https://wa.me/5563981251996?text=Olá!%20Gostaria%20de%20mais%20informações." target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+    💬
+  </a>
+
+  <!-- FOOTER -->
+  <footer>
+    <p><strong>Doces da Turquia</strong> - Palmas, Tocantins</p>
+    <p style="margin: 10px 0;">
+      <a href="https://www.instagram.com/docesdaturquia" target="_blank">Instagram: @docesdaturquia</a> | 
+      <a href="https://wa.me/message/3NVFPB6WRK7KB1" target="_blank">WhatsApp: +55 63 98125-1996</a>
+    </p>
+    <p><em>Experimente um pedacinho da Turquia no Brasil! ❤️️</em></p>
+  </footer>
+
+</body>
+</html>
